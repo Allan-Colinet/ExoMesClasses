@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MesClasses
 {
-    internal class Pretre
+    public class Pretre
     {
         public string NomPerso { get; set; }
 
@@ -27,24 +27,27 @@ namespace MesClasses
         private int _intelligence;
         public int Intelligence
         {
-            get { return _intelligence; }
-            set { _intelligence = value+2; }
+            get { return _intelligence+2; }
+            set { _intelligence = value; }
         }
         private int _sagesse;
         public int Sagesse
         {
-            get { return _sagesse; }
-            set { _sagesse = value+4; }
+            get { return _sagesse+4; }
+            set { _sagesse = value; }
         }
 
 
         public void NewStats()
         {
+            Console.WriteLine("Choisissez votre pseudo :");
+            NomPerso = Console.ReadLine();
+
             Random rnd = new Random();
-            _force = rnd.Next(10, 21);
-            _endurance = rnd.Next(10, 21);
-            _intelligence = rnd.Next(10, 21);
-            _sagesse = rnd.Next(10, 21);
+            Force = rnd.Next(10, 21);
+            Endurance = rnd.Next(10, 21);
+            Intelligence = rnd.Next(10, 21);
+            Sagesse = rnd.Next(10, 21);
         }
     }
 }
