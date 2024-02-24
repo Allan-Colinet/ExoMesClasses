@@ -10,14 +10,18 @@ namespace MesClasses
     {
         public string NomPerso { get; set; }
 
-        
+        // private => ne pourra pas être modifié par l'utilisateur
         private int _force;
+
+        // ici on va avoir la possibilité de le modifier
+        // le get va retourner la variable à l'utilisateur. Ce sera une modification qui s'appliquera en plus de la variable (exemple d'un item qu'on peut mettre et retirer)
+        // le set va modifier l'etat de la varibale (exemple d'un parchemin sur un rpg)
         public int Force
         {
             get { return _force; }
             set { _force = value; }
         }
-         
+        
         private int _endurance;
         public int Endurance
         {
@@ -38,7 +42,7 @@ namespace MesClasses
         }
 
 
-        public void NewStats()
+        public void NewPerso()
         {
             Console.WriteLine("Choisissez votre pseudo :");
             NomPerso = Console.ReadLine();

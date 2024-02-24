@@ -4,10 +4,12 @@
     {
         static void Main(string[] args)
         {
+            // instanciation d'un nouveau guerrier et la méthode qui va générer les stats
             Guerrier jeanHubert = new Guerrier();
-            jeanHubert.NomPerso = "BlaBla";
-            jeanHubert.NewStats();
+            
+            jeanHubert.NewPerso();
 
+            // Affichage des stats 
             Console.WriteLine($"Force de pédé : {jeanHubert.Force}");
             Console.WriteLine($"Endurance de malade : {jeanHubert.Endurance}");
             Console.WriteLine($"Intelligence de fou furieux : {jeanHubert.Intelligence}");

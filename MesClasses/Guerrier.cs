@@ -38,7 +38,7 @@ namespace MesClasses
         }
 
 
-        public void NewStats()
+        public void NewPerso()
         {
             Console.WriteLine("Choisissez votre pseudo :");
             NomPerso = Console.ReadLine();
