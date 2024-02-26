@@ -6,48 +6,10 @@ using System.Threading.Tasks;
 
 namespace MesClasses
 {
-    public class Guerrier
+    public class Guerrier : Personnages
     {
-        public string NomPerso { get; set; }
+        public override int Endurance { get => base.Endurance+3; set => base.Endurance = value; }
+        public override int Force { get => base.Force+3; set => base.Force = value; }
 
-
-        private int _force;
-        public int Force
-        {
-            get { return _force; }
-            set { _force = value+3; }
-        }
-
-        private int _endurance;
-        public int Endurance
-        {
-            get { return _endurance+3; }
-            set { _endurance = value; }
-        }
-        private int _intelligence;
-        public int Intelligence
-        {
-            get { return _intelligence+4; }
-            set { _intelligence = value; }
-        }
-        private int _sagesse;
-        public int Sagesse
-        {
-            get { return _sagesse; }
-            set { _sagesse = value ; }
-        }
-
-
-        public void NewPerso()
-        {
-            Console.WriteLine("Choisissez votre pseudo :");
-            NomPerso = Console.ReadLine();
-
-            Random rnd = new Random();
-            Force = rnd.Next(10, 21);
-            Endurance = rnd.Next(10, 21);
-            Intelligence = rnd.Next(10, 21);
-            Sagesse = rnd.Next(10, 21);
-        }
     }
 }

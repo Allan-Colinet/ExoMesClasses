@@ -6,52 +6,10 @@ using System.Threading.Tasks;
 
 namespace MesClasses
 {
-    public class Mage
+    public class Mage : Personnages
     {
-        public string NomPerso { get; set; }
+        public override int Intelligence { get => base.Intelligence+4; set => base.Intelligence = value; }
 
-        // private => ne pourra pas être modifié par l'utilisateur
-        private int _force;
-
-        // ici on va avoir la possibilité de le modifier
-        // le get va retourner la variable à l'utilisateur. Ce sera une modification qui s'appliquera en plus de la variable (exemple d'un item qu'on peut mettre et retirer)
-        // le set va modifier l'etat de la varibale (exemple d'un parchemin sur un rpg)
-        public int Force
-        {
-            get { return _force; }
-            set { _force = value; }
-        }
-        
-        private int _endurance;
-        public int Endurance
-        {
-            get { return _endurance; }
-            set { _endurance = value; }
-        }
-        private int _intelligence;
-        public int Intelligence
-        {
-            get { return _intelligence+4; }
-            set { _intelligence = value; }
-        }
-        private int _sagesse;
-        public int Sagesse
-        {
-            get { return _sagesse+2; }
-            set { _sagesse = value; }
-        }
-
-
-        public void NewPerso()
-        {
-            Console.WriteLine("Choisissez votre pseudo :");
-            NomPerso = Console.ReadLine();
-
-            Random rnd = new Random();
-            Force = rnd.Next(10, 21);
-            Endurance = rnd.Next(10, 21);
-            Intelligence = rnd.Next(10, 21);
-            Sagesse = rnd.Next(10,21);
-        }
+        public override int Sagesse { get => base.Sagesse+2; set => base.Sagesse = value; }
     }
 }
