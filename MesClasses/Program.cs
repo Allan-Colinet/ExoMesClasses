@@ -11,7 +11,7 @@
 
             // Affichage des stats 
             G.AfficherStat();
-            
+          
         }
     }
 }
