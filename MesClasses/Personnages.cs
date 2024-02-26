@@ -52,7 +52,6 @@ namespace MesClasses
         
         public void NewPerso()
         {
-            //ChoixClasse();
             Console.WriteLine("Choisissez votre pseudo :");
             NomPerso = Console.ReadLine();
 
@@ -71,7 +70,7 @@ namespace MesClasses
             Console.WriteLine();
             Console.WriteLine($"Vous obtenez les caractéristiques suivante :");
             Console.WriteLine("---------------------------------------------");
-            Console.WriteLine("Force : " + ((this.GetType().Name == "Guerrier") ? _force + " + " + (Force - _force) : Force ));
+            Console.WriteLine("Force : " + ((this.GetType().Name == "Guerrier") ? _force + " + " + (Force - _force)+ " = "+Force : Force ));
             Console.WriteLine("Endurance : " + ((this.GetType().Name == "Guerrier") ? _endurance + " + " + (Endurance - _endurance) : Endurance ));
             if (this.GetType().Name == "Mage")
             {
@@ -79,7 +78,7 @@ namespace MesClasses
             }
             else if (this.GetType().Name == "Pretre")
             {
-                Console.WriteLine("Intelligence : " + ((this.GetType().Name == "Pretre") ? _intelligence + " + " + (Intelligence - _intelligence) : Intelligence));
+                Console.WriteLine("Intelligence : " + ((this.GetType().Name == "Pretre") ?  _intelligence + " + " + (Intelligence - _intelligence) : Intelligence));
             }
             else { Console.WriteLine($"Intelligence : {Intelligence}"); }
 
