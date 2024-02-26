@@ -13,12 +13,13 @@ namespace MesClasses
         
         public void GenererHorde()
         {
-            Random rnd = new Random();
-            int Lance = rnd.Next(1,7);
 
-            
+            Random rnd = new Random();
+
             for (int i = 0; i < 10; i++)
             {
+                
+                int Lance = rnd.Next(1,7);
 
                 if (Lance == 1)
                 {
