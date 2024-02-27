@@ -28,19 +28,19 @@ namespace MesClasses
                 if (Lance == 1)
                 {
                     monstre = new Orc();
-                    monstre.NewMonstre();
+                    monstre.Creation();
                     hordeMonstre.Add(monstre);
                 }
                 else if (Lance == 2 || Lance == 3)
                 {
                     monstre = new Loup();
-                    monstre.NewMonstre();
+                    monstre.Creation();
                     hordeMonstre.Add(monstre);
                 }
                 else
                 {
                     monstre = new Gobelin();
-                    monstre.NewMonstre();
+                    monstre.Creation();
                     hordeMonstre.Add(monstre);
                 }
             }
@@ -54,16 +54,16 @@ namespace MesClasses
                 switch(listhorde)
                 {
                     case Orc orc:
-                        orc.AfficherStatsMonstre();
+                        orc.AfficherCaracteristique();
                         orc.CriDeGuerre();
                         orc.CoupDeHache();
                         break;
                     case Gobelin gobelin:
-                        gobelin.AfficherStatsMonstre();
+                        gobelin.AfficherCaracteristique();
                         gobelin.CoupDeMasse();
                         break;
                     case Loup loup:
-                        loup.AfficherStatsMonstre();
+                        loup.AfficherCaracteristique();
                         loup.Morsure();
                         loup.Hurlement();
                         break;
@@ -92,15 +92,18 @@ namespace MesClasses
             {
                 case 1:
                     joueur = new Guerrier();
-                    joueur.NewPerso();
+                    joueur.Creation();
+                    joueur.AfficherCaracteristique();
                     break;
                 case 2:
                     joueur = new Mage();
-                    joueur.NewPerso();
+                    joueur.Creation();
+                    joueur.AfficherCaracteristique();
                     break;
                 case 3:
                     joueur = new Pretre();
-                    joueur.NewPerso();
+                    joueur.Creation();
+                    joueur.AfficherCaracteristique();
                     break;
                 case 4: Environment.Exit(0); break;
                 default: Console.WriteLine("Veuillez choisir 1,2,3 ou 4"); break;
