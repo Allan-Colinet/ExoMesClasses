@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MesClasses.Monstres.Monstres
 {
-    public class Gobelin : Monstres
+    public class Gobelin : Monstre
     {
         public override int Force { get => base.Force - 1; set => base.Force = value; }
         public void CoupDeMasse()

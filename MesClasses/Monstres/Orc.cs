@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MesClasses.Monstres
 {
-    public class Orc : Monstres
+    public class Orc : Monstre
     {
         public override int Force { get => base.Force + 3; set => base.Force = value; }
         public override int Endurance { get => base.Endurance + 2; set => base.Endurance = value; }

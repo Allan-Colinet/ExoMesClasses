@@ -4,35 +4,44 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using MesClasses.Heros;
+using MesClasses.Monstres;
+using MesClasses.Monstres.Monstres;
 
 namespace MesClasses
 {
     public class Jeu
     {
         #region Monstres
-        List<Monstres> hordeMonstre = new List<Monstres>();
+        public List<Monstre> ?hordeMonstre {  get; set; }
+           
         
         public void GenererHorde()
         {
-
+            hordeMonstre = new List<Monstre>();
             Random rnd = new Random();
 
             for (int i = 0; i < 10; i++)
             {
-                
+                Monstre monstre;
                 int Lance = rnd.Next(1,7);
 
                 if (Lance == 1)
                 {
-                    hordeMonstre.Add(new Orc());
+                    monstre = new Orc();
+                    monstre.NewMonstre();
+                    hordeMonstre.Add(monstre);
                 }
                 else if (Lance == 2 || Lance == 3)
                 {
-                    hordeMonstre.Add(new Loup());
+                    monstre = new Loup();
+                    monstre.NewMonstre();
+                    hordeMonstre.Add(monstre);
                 }
                 else
                 {
-                    hordeMonstre.Add(new Gobelin());
+                    monstre = new Gobelin();
+                    monstre.NewMonstre();
+                    hordeMonstre.Add(monstre);
                 }
             }
             
@@ -40,9 +49,28 @@ namespace MesClasses
 
         public void AfficherHorde()
         {
-            foreach (Monstres listhorde in hordeMonstre)
+            foreach (Monstre listhorde in hordeMonstre)
             {
-                Console.WriteLine(listhorde);
+                switch(listhorde)
+                {
+                    case Orc orc:
+                        orc.AfficherStatsMonstre();
+                        orc.CriDeGuerre();
+                        orc.CoupDeHache();
+                        break;
+                    case Gobelin gobelin:
+                        gobelin.AfficherStatsMonstre();
+                        gobelin.CoupDeMasse();
+                        break;
+                    case Loup loup:
+                        loup.AfficherStatsMonstre();
+                        loup.Morsure();
+                        loup.Hurlement();
+                        break;
+                }
+                Console.WriteLine();
+                Console.WriteLine("----------------");
+                Console.WriteLine();
             }
 
         }
