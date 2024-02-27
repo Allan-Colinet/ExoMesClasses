@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MesClasses
+namespace MesClasses.Heros
 {
     public class Personnages
     {
@@ -13,6 +13,7 @@ namespace MesClasses
         //get { }
         // set { }
         //}
+        #region Perso
         public string? NomPerso { get; set; }
 
         // private => ne pourra pas être modifié par l'utilisateur
@@ -36,20 +37,20 @@ namespace MesClasses
         private int _intelligence;
         public virtual int Intelligence
         {
-            get { return _intelligence ; }
+            get { return _intelligence; }
             set { _intelligence = value; }
         }
         private int _sagesse;
         public virtual int Sagesse
         {
-            get { return _sagesse ; }
+            get { return _sagesse; }
             set { _sagesse = value; }
         }
         // avec le _xxx c'est la valeur de base avec Maj valeur + bonus
         //public void ChoixClasse()
         //{
-            
-        
+
+
         public void NewPerso()
         {
             Console.WriteLine("Choisissez votre pseudo :");
@@ -66,33 +67,35 @@ namespace MesClasses
 
         public void AfficherStat()
         {
-            Console.WriteLine($"{NomPerso} vous êtes un {this.GetType().Name}, bonne chance dans cette aventure");
+            Console.WriteLine($"{NomPerso} vous êtes un {GetType().Name}, bonne chance dans cette aventure");
             Console.WriteLine();
             Console.WriteLine($"Vous obtenez les caractéristiques suivante :");
             Console.WriteLine("---------------------------------------------");
-            Console.WriteLine("Force : " + ((this.GetType().Name == "Guerrier") ? _force + " + " + (Force - _force)+ " = "+Force : Force ));
-            Console.WriteLine("Endurance : " + ((this.GetType().Name == "Guerrier") ? _endurance + " + " + (Endurance - _endurance) : Endurance ));
-            if (this.GetType().Name == "Mage")
+            Console.WriteLine("Force : " + (GetType().Name == "Guerrier" ? _force + " + " + (Force - _force) + " = " + Force : Force));
+            Console.WriteLine("Endurance : " + (GetType().Name == "Guerrier" ? _endurance + " + " + (Endurance - _endurance) + " = " + Endurance: Endurance));
+            if (GetType().Name == "Mage")
             {
-                Console.WriteLine("Intelligence : " + ((this.GetType().Name == "Mage") ? _intelligence + " + " + (Intelligence - _intelligence) : Intelligence));
+                Console.WriteLine("Intelligence : " + (GetType().Name == "Mage" ? _intelligence + " + " + (Intelligence - _intelligence)+ " = "+ Intelligence : Intelligence));
             }
-            else if (this.GetType().Name == "Pretre")
+            else if (GetType().Name == "Pretre")
             {
-                Console.WriteLine("Intelligence : " + ((this.GetType().Name == "Pretre") ?  _intelligence + " + " + (Intelligence - _intelligence) : Intelligence));
+                Console.WriteLine("Intelligence : " + (GetType().Name == "Pretre" ? _intelligence + " + " + (Intelligence - _intelligence) + " = " + Intelligence : Intelligence));
             }
             else { Console.WriteLine($"Intelligence : {Intelligence}"); }
 
-            if (this.GetType().Name == "Mage")
+            if (GetType().Name == "Mage")
             {
-                Console.WriteLine("Sagesse : " + ((this.GetType().Name == "Mage") ? _sagesse + " + " + (Sagesse - _sagesse) : Sagesse));
+                Console.WriteLine("Sagesse : " + (GetType().Name == "Mage" ? _sagesse + " + " + (Sagesse - _sagesse) + " = " + Sagesse : Sagesse));
             }
-            else if (this.GetType().Name == "Pretre")
+            else if (GetType().Name == "Pretre")
             {
-                Console.WriteLine("Sagesse : " + ((this.GetType().Name == "Pretre") ? _sagesse + " + " + (Sagesse - _sagesse) : Sagesse));
+                Console.WriteLine("Sagesse : " + (GetType().Name == "Pretre" ? _sagesse + " + " + (Sagesse - _sagesse) + " = " + Sagesse : Sagesse));
             }
             else { Console.WriteLine($"Sagesse : {Sagesse}"); }
             Console.WriteLine();
         }
+        #endregion
     }
+
 }
 
