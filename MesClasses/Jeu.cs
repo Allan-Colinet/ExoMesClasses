@@ -6,13 +6,20 @@ using System.Threading.Tasks;
 using MesClasses.Heros;
 using MesClasses.Monstres;
 using MesClasses.Monstres.Monstres;
+using RPG.Loot;
 
 namespace MesClasses
 {
     public class Jeu
-    {
+    { 
+        public List<Equipements> equipements {  get; set; }
+        public void GenererInventaire()
+        {
+            equipements = new List<Equipements>();
+        }
+        
         #region Monstres
-        public List<Monstre> ?hordeMonstre {  get; set; }
+        public List<Monstre> ?hordeMonstre { get; set; }
            
         
         public void GenererHorde()

@@ -1,4 +1,5 @@
 ﻿using RPG;
+using RPG.Loot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,6 +11,8 @@ namespace MesClasses.Monstres
 {
     public class Monstre : Entite
     {
+        
+
         public override void Creation()
         {
             Random rnd = new Random();

@@ -6,6 +6,7 @@
         {
             Jeu partie = new Jeu();
             partie.ChoixClasse();
+            //partie.genererstuff();
             partie.GenererHorde();
             partie.AfficherHorde();
         }

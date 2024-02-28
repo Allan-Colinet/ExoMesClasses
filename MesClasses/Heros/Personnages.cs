@@ -1,9 +1,17 @@
 ﻿using RPG;
+using RPG.Loot;
 
 namespace MesClasses.Heros
 {
-    public class Personnages : Entite
+    public class Personnages : Entite, IInventaire
     {
+        public List<Equipements> ContenuInventaire { get ; set ; }
+
+        public Personnages(List<Equipements> contenuInventaireHero)
+        {
+            ContenuInventaire = contenuInventaireHero;
+        }
+
         //public override/virtual type nom
         //{
         //get { }
@@ -28,6 +36,8 @@ namespace MesClasses.Heros
             get { return _sagesse; }
             set { _sagesse = value; }
         }
+
+
         public override void Creation()
         {
             Console.WriteLine("Choisissez votre pseudo :");
