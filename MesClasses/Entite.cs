@@ -24,8 +24,6 @@ namespace RPG
             get { return _endurance; }
             set { _endurance = value; }
         }
-
-
         #endregion
         public abstract void Creation();
         public abstract void AfficherCaracteristique();

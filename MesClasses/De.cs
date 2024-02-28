@@ -12,12 +12,12 @@ namespace RPG
         {
             Random rnd = new Random();
 
-            int resultLancerMultiple = 0;
+            int resultLancer = 0;
             for (int i = 0; i < nbDes; i++)
             {
-            resultLancerMultiple += rnd.Next(1, nbFaces+1);
+            resultLancer += rnd.Next(1, nbFaces+1);
             }
-            return resultLancerMultiple;
+            return resultLancer;
         }
     }
 }

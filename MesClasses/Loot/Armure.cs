@@ -9,7 +9,8 @@ namespace RPG.Loot
     public class Armure : Equipements
     {
         // toutes les armures ont une propriété de réduction de degats
-        public int ArmureCuir = -2;
-        public int ArmureArgent = -4;
+        public int Armures { get; set; }
+        public int ReducDegats()
+        { return /* Degats - */ Armures ; }
     }
 }

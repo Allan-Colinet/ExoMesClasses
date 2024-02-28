@@ -9,12 +9,10 @@ namespace RPG.Loot
     public class Consommable : Equipements
     { 
         Random rnd = new Random();
-        Consommable PotionSoin = new Consommable();
         
-
-        public int ConsommableEffet()
+        public int Soin(int nbFaces, int nbDes)
         {
-            return (rnd.Next(1, 5) + rnd.Next(1, 5));
+            return 0;//(nbFaces, nbDes);
         }
     }
 }

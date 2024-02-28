@@ -12,10 +12,46 @@ namespace MesClasses
 {
     public class Jeu
     { 
-        public List<Equipements> equipements {  get; set; }
+        public static List<Equipements> equipements ()
+        {
+            List<Equipements> Stuff = new List<Equipements>();
+            
+            Arme epeeCourte = new Arme();
+            epeeCourte.nom = "Epée courte";
+            epeeCourte.prix = 20;
+            epeeCourte.nbFaces = 6;
+            epeeCourte.nbDes = 1;
+            Stuff.Add(epeeCourte);
+
+            //Arme epeeLongue
+            //Arme baton
+
+            Armure armureCuir = new Armure();
+            armureCuir.nom = "Armure de Cuir";
+            armureCuir.Armures = 2;
+            armureCuir.prix = 10;
+            Stuff.Add( armureCuir );
+
+            //Armure armureArgent
+
+            Consommable potion = new Consommable();
+            potion.nom = "Petite Potion de soin";
+            potion.prix = 5;
+            potion.nbFaces = 4;
+            potion.nbDes = 2;
+            Stuff.Add( potion );
+            
+
+
+
+            return Stuff;
+        }
+        
+        
         public void GenererInventaire()
         {
             equipements = new List<Equipements>();
+            //equipements.Add(Equipements.EpeeCourte());
         }
         
         #region Monstres

@@ -9,6 +9,11 @@ namespace RPG.Loot
     public abstract class Equipements
     {
         public string nom {  get; set; }
-        protected int prix { get; private set; }
+        public int prix { get; set; }
+        public int nbFaces { get; set; }
+        public int nbDes { get; set; }
+
     }
+
+    
 }

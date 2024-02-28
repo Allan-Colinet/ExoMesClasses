@@ -8,18 +8,16 @@ namespace RPG.Loot
 {
     public class Arme : Equipements
     {
-        private int _nbFaces;
-        public virtual int NbFace
-        {
-            get { return _nbFaces; }
-            set { _nbFaces = value; }
-        }
+        
+        public int nbFaces {  get; set; }
+
+        public int nbDes {  get; set; }
 
         Random rnd = new Random();
         
         public int Degats()
         {
-            return rnd.Next(1,_nbFaces + 1);
+            return rnd.Next(1,nbFaces + 1);
         }
 
     }
