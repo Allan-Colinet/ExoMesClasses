@@ -12,7 +12,7 @@ namespace MesClasses.Monstres
     public class Monstre : Entite
     {
         
-
+        // méthode pour créer un monstre en override en lien avec se qui se trouve dans Entite pareil pour les caractéristiques
         public override void Creation()
         {
             Random rnd = new Random();

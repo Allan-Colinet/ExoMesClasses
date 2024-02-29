@@ -5,14 +5,15 @@ namespace MesClasses.Heros
 {
     public class Personnages : Entite, IInventaire
     {
+        // La classe personnage à les propriétés propres aux héros (intelligence et sagesse)
         public List<Equipements> ContenuInventaire { get ; set ; }
-
+        //C'est un constructeur (ctor) pour l'inventaire du hero)
         public Personnages(List<Equipements> contenuInventaireHero)
         {
             ContenuInventaire = contenuInventaireHero;
         }
 
-        //public override/virtual type nom
+        //public override/virtual type nom permet d'utiliser une méthode d'une classe parent ici les méthodes, objets, propriétés d'Entité et d'IInventaire(interface)
         //{
         //get { }
         // set { }
@@ -37,7 +38,7 @@ namespace MesClasses.Heros
             set { _sagesse = value; }
         }
 
-
+        //Méthode pour la création des stats random du personnage choisi (sans les bonus du type de perso : Mage, pretre ou guerrier)
         public override void Creation()
         {
             Console.WriteLine("Choisissez votre pseudo :");
@@ -50,12 +51,14 @@ namespace MesClasses.Heros
             Sagesse = rnd.Next(10, 21);
         }
 
+        //La méthode d'affichage des caractéristique des personnages selon l'affichage des bonus (le Force est la compétence+bonus et le _force la compétence sans le bonus)
         public override void AfficherCaracteristique()
         {
             Console.WriteLine($"{NomPerso} vous êtes un {GetType().Name}, bonne chance dans cette aventure");
             Console.WriteLine();
             Console.WriteLine($"Vous obtenez les caractéristiques suivante :");
             Console.WriteLine("---------------------------------------------");
+            // J'utilise une ternaire basée sur le type de personnage. Si la condition est un Guerrier alors tu écris ... ":" Sinon tu écris ...
             Console.WriteLine("Force : " + (GetType().Name == "Guerrier" ? _force + " + " + (Force - _force) + " = " + Force : Force));
             Console.WriteLine("Endurance : " + (GetType().Name == "Guerrier" ? _endurance + " + " + (Endurance - _endurance) + " = " + Endurance : Endurance));
             if (GetType().Name == "Mage")

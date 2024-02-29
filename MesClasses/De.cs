@@ -8,6 +8,9 @@ namespace RPG
 {
     public static class De
     {
+        //Utilisation d'une classe De (à voir si c'est pas mieux d'utiliser une interface) 
+
+        //Cette méthode permet de lancer plusieurs dés selon le nombre voulu dans .nbDes = x;
         public static int Lancer(int nbDes, int nbFaces )
         {
             Random rnd = new Random();

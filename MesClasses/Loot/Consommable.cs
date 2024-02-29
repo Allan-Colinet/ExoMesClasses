@@ -8,6 +8,7 @@ namespace RPG.Loot
 {
     public class Consommable : Equipements
     { 
+        // La méthode sera à implémenté avec le système de combat
         Random rnd = new Random();
         
         public int Soin(int nbFaces, int nbDes)

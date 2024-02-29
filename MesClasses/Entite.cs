@@ -8,6 +8,7 @@ namespace RPG
 {
     public abstract class Entite
     {
+        // Ici toutes les class qui vont hérité de Entite auront un NomPerso une méthode Creation et AfficherCaracteristiques
         public string? NomPerso { get; set; }
 
         #region Caracteristiques

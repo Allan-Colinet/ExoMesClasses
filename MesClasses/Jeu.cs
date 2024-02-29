@@ -12,6 +12,7 @@ namespace MesClasses
 {
     public class Jeu
     { 
+        //Instanciation de la list d'équipement et création des équipements
         public static List<Equipements> equipements ()
         {
             List<Equipements> Stuff = new List<Equipements>();
@@ -43,7 +44,7 @@ namespace MesClasses
             
 
 
-
+            // je retourne la liste instanciée pour pouvoir l'utiliser par après dans le système de loot
             return Stuff;
         }
         
@@ -55,6 +56,7 @@ namespace MesClasses
         }
         
         #region Monstres
+        //Création d'une liste de monstre pour la génération aléatoire des monstres à implémenter lors de l'appel de la méthode
         public List<Monstre> ?hordeMonstre { get; set; }
            
         
@@ -63,6 +65,7 @@ namespace MesClasses
             hordeMonstre = new List<Monstre>();
             Random rnd = new Random();
 
+            // une boucle pour créer le nombre voulu avec instanciation du monstre et ajout à la liste selon le random effectué
             for (int i = 0; i < 10; i++)
             {
                 Monstre monstre;
@@ -92,6 +95,7 @@ namespace MesClasses
 
         public void AfficherHorde()
         {
+            //Affichage de la liste avec un foreach pour parcourir tous les Monstre dans hordeMonstre cette listhorde permet d'être la condition de switch
             foreach (Monstre listhorde in hordeMonstre)
             {
                 switch(listhorde)
@@ -119,7 +123,7 @@ namespace MesClasses
         }
 
         #endregion
-
+        //Switch pour choisir une classe si le choix correspond, instanciation du personnage choisi avec creation des stats aléatoires et affichage
         #region Classe_Perso
         public void ChoixClasse()
         {
