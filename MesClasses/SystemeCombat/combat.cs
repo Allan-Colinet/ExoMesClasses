@@ -4,10 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace RPG.Loot
+namespace RPG.SystemeCombat
 {
-    public interface IOr
+    public class combat
     {
-        int Or { get; set; }
+        //application du modif sur la stats (force etc.) au degats 
     }
 }

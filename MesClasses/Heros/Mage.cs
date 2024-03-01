@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace MesClasses.Heros
 {
-    public class Mage : Personnages
+    public class Mage : Personnage
     {
         public override int Intelligence { get => base.Intelligence + 4; set => base.Intelligence = value; }
 

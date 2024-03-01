@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG.Loot
 {
-    public abstract class Equipements
+    public abstract class Equipement
     {
         //Ici j'ai choisi une classe abstract pour que toutes les class qui vont hérité d'Equipements doivent instancié les paramètres de la classe abstract (nom, prix, nbFaces, nbDes)
         public string nom {  get; set; }

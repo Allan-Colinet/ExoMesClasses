@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RPG.Loot
 {
-    public class Consommable : Equipements
+    public class Consommable : Equipement
     { 
         // La méthode sera à implémenté avec le système de combat
         Random rnd = new Random();

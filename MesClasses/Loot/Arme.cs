@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 namespace RPG.Loot
 {
     // la classe Arme hérite d'équipement, ici les propriétés nbFaces et nbDes permettent d'utiliser le lancé de dés pour le calcul des stats des armes
-    public class Arme : Equipements
+    public class Arme : Equipement
     {
         
         public int nbFaces {  get; set; }

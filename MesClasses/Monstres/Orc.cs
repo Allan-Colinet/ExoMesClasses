@@ -7,12 +7,19 @@ using System.Threading.Tasks;
 
 namespace MesClasses.Monstres
 {
-    public class Orc : Monstre, IInventaire
+    public class Orc : Monstre, IInventaire, IOr
     {
-        public List<Equipements> ContenuInventaire { get; set; }
+        public int Or { get ; set; }
+        public override void Creation()
+        {
+            Random rnd = new Random();
+            base.Creation();
+            Or = rnd.Next(0, 7);
+        }
+        public List<Equipement> Inventaire { get; set; }
 
       // instanciation du bonus Force pour cette classe en override car les paramètres sont en protected et c'est la condition pour utiliser le paramètre protected d'un parent
-
+     
         public override int Force { get => base.Force + 3; set => base.Force = value; }
         public override int Endurance { get => base.Endurance + 2; set => base.Endurance = value; }
 
