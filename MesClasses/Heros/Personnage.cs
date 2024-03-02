@@ -78,6 +78,8 @@ namespace MesClasses.Heros
             Console.WriteLine($"Points de vie : {Pv}");
             Console.WriteLine();
             Console.WriteLine($"Or: {Or}");
+            Console.WriteLine("---------------------------------------------");
+            Console.WriteLine();
         }
 
      

@@ -10,6 +10,8 @@
             //partie.genererstuff();
             partie.GenererHorde();
             partie.AfficherHorde();
+            Console.WriteLine();
+            partie.Shop();
         }
     }
 }

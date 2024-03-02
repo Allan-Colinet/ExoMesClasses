@@ -10,13 +10,6 @@ namespace RPG
     {
         // Ici toutes les class qui vont hérité de Entite auront un NomPerso une méthode Creation et AfficherCaracteristiques
         public string? NomPerso { get; set; }
-        protected int _piecesOr {  get; set; }
-        public virtual int PiecesOr
-        {
-            get { return _piecesOr; }
-            set { _piecesOr = value; }
-        }
-
         #region Caracteristiques
         // le protected permet d'être utiliser dans la pile d'héritage pas autre part, contrairement au private
         protected int _pv;
@@ -25,7 +18,6 @@ namespace RPG
             get { return _pv + Modificateur(Endurance); }
             set { _pv = value; }
         }
-
         protected int _force;
         public virtual int Force
         {

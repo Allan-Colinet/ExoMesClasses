@@ -9,12 +9,13 @@ namespace MesClasses.Monstres
 {
     public class Orc : Monstre, IInventaire, IOr
     {
+        //Ajouter loot rnd(0,3) sur liste Equipements à l'intanciation avec une méthode
         public int Or { get ; set; }
         public override void Creation()
         {
             Random rnd = new Random();
             base.Creation();
-            Or = rnd.Next(0, 7);
+            Or = rnd.Next(2, 7);
         }
         public List<Equipement> Inventaire { get; set; }
 

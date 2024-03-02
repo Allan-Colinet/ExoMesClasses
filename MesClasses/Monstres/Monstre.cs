@@ -13,8 +13,6 @@ namespace MesClasses.Monstres
     {
         public List<Equipement> Inventaire { get; set; }
 
-
-
         // méthode pour créer un monstre en override en lien avec se qui se trouve dans Entite pareil pour les caractéristiques
         public override void Creation()
         {
@@ -36,8 +34,6 @@ namespace MesClasses.Monstres
                 Console.WriteLine($"Or: {MonstreOr.Or}");
             }
                
-
-
         }
     }
 }
