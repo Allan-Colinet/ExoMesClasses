@@ -10,7 +10,6 @@ namespace MesClasses
             Jeu partie = new Jeu();
             partie.InitialiserEquipements();
             partie.ChoixClasse();
-            //partie.genererstuff();
             partie.GenererHorde();
             partie.AfficherHorde();
             Console.WriteLine();

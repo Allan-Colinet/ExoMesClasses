@@ -15,51 +15,47 @@ namespace MesClasses
     public class Jeu
     {
         //Trouver comment faire pour acheter/vendre dans la boutique (vente moitié prix) et sa stock/recupere dans l'inventaire hero
-        //public Jeu()
-        //{
-        //    Equipements = new List<Equipement>();
-        //    InitialiserEquipements();
-        //}
+
         //Instanciation de la list d'équipement et création des équipements (nom de list "Equipements"
         public List<Equipement> Equipements { get; set; }
         Personnage joueur = new Personnage();
         public void InitialiserEquipements()
         {
             Equipements = new List<Equipement>();
-            
+             
             Arme epeeCourte = new Arme();
             epeeCourte.nom = "Epée courte";
             epeeCourte.prix = 15;
             epeeCourte.nbFaces = 6;
             epeeCourte.nbDes = 1;
             Equipements.Add(epeeCourte);
-
+             
             Arme epeeLongue = new Arme();
             epeeLongue.nom = "Epée longue";
             epeeLongue.prix = 25;
             epeeLongue.nbDes = 1;
             epeeLongue.nbFaces = 8;
             Equipements.Add(epeeLongue);
-
+             
             Arme baton = new Arme();
             baton.nom = "Bâton";
             baton.prix = 10;
             baton.nbDes = 1;
             baton.nbFaces = 4;
             Equipements.Add(baton);
-
+             
             Armure armureCuir = new Armure();
             armureCuir.nom = "Armure de Cuir";
             armureCuir.Armures = 2;
             armureCuir.prix = 20;
             Equipements.Add(armureCuir);
-
+             
             Armure armureArgent = new Armure();
             armureArgent.nom = "Armure d'argent";
             armureArgent.Armures = 5;
             armureArgent.prix = 50;
             Equipements.Add(armureArgent);
-
+             
             Consommable potion = new Consommable();
             potion.nom = "Petite Potion de soin";
             potion.prix = 5;
@@ -67,7 +63,6 @@ namespace MesClasses
             potion.nbFaces = 4;
             Equipements.Add(potion);
         }
-
         #region Monstres
         //Création d'une liste de monstre pour la génération aléatoire des monstres à implémenter lors de l'appel de la méthode
         public List<Monstre>? hordeMonstre { get; set; }
@@ -75,7 +70,6 @@ namespace MesClasses
         public void LootMonstre(Monstre monstre)
         {
             Random rnd = new Random();
-
             switch (rnd.Next(0, 3))
             {
                 case 0:
@@ -88,24 +82,16 @@ namespace MesClasses
                     monstre.Inventaire.Add(Equipements[rnd.Next(0, Equipements.Count)]); 
                     break;
             }
-
-            //foreach (Equipement stuffLoot in Inventaire)
-            //{
-            //    Console.WriteLine(stuffLoot.nom);
-            //}
         }
         public void GenererHorde()
         {
             hordeMonstre = new List<Monstre>();
             Random rnd = new Random();
-
             // une boucle pour créer le nombre voulu avec instanciation du monstre et ajout à la liste selon le random effectué
             for (int i = 0; i < 10; i++)
             {
                 Monstre monstre;
-                int Lance = rnd.Next(1, 7);
-                
-                
+                int Lance = rnd.Next(1, 7); 
                 if (Lance == 1)
                 {
                     monstre = new Orc();
@@ -128,7 +114,6 @@ namespace MesClasses
                 }
             }
         }
-
         public void AfficherHorde()
         {
             //Affichage de la liste avec un foreach pour parcourir tous les Monstre dans hordeMonstre cette listhorde permet d'être la condition de switch
@@ -157,7 +142,6 @@ namespace MesClasses
                 Console.WriteLine("----------------");
                 Console.WriteLine();
             }
-
         }
         public void Shop()
         {
@@ -189,16 +173,11 @@ namespace MesClasses
                     case 3:
                         joueur = new Pretre();
                         break;
-
                     default:
                         joueur = null; break;
-                }
-            
+                } 
             joueur.Creation();
-
-            //joueur.Modificateur();
             joueur.AfficherCaracteristique();
-
             return joueur;
         }
         #endregion
