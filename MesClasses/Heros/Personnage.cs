@@ -4,14 +4,14 @@ using System.Net;
 
 namespace MesClasses.Heros
 {
-    public class Personnage : Entite, IInventaire, IOr
+    public class Personnage : Entite, IOr
     {
         // La classe personnage à les propriétés propres aux héros (intelligence et sagesse)
-        public List<Equipement> Inventaire { get ; set ; }
+        public List<Equipement> InventaireHero { get ; set ; }
         //C'est un constructeur (ctor) pour l'inventaire du hero)
         public Personnage()
         {
-            Inventaire = new List<Equipement>();
+            InventaireHero = new List<Equipement>();
             
         }
 

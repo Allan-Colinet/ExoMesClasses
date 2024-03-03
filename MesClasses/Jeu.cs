@@ -14,17 +14,19 @@ namespace MesClasses
 {
     public class Jeu
     {
-        //Trouver comment faire pour acheter/vendre dans la boutique (vente moitié prix) et sa stock dans l'inventaire hero
-        public Jeu()
-        {
-            Equipements = new List<Equipement>();
-            InitialiserEquipements();
-        }
-        //Instanciation de la list d'équipement et création des équipements
-        public static List<Equipement> Equipements { get; set; }
+        //Trouver comment faire pour acheter/vendre dans la boutique (vente moitié prix) et sa stock/recupere dans l'inventaire hero
+        //public Jeu()
+        //{
+        //    Equipements = new List<Equipement>();
+        //    InitialiserEquipements();
+        //}
+        //Instanciation de la list d'équipement et création des équipements (nom de list "Equipements"
+        public List<Equipement> Equipements { get; set; }
         Personnage joueur = new Personnage();
         public void InitialiserEquipements()
         {
+            Equipements = new List<Equipement>();
+            
             Arme epeeCourte = new Arme();
             epeeCourte.nom = "Epée courte";
             epeeCourte.prix = 15;
@@ -69,8 +71,29 @@ namespace MesClasses
         #region Monstres
         //Création d'une liste de monstre pour la génération aléatoire des monstres à implémenter lors de l'appel de la méthode
         public List<Monstre>? hordeMonstre { get; set; }
+        public List<Equipement> Inventaire { get; set; }
+        public void LootMonstre(Monstre monstre)
+        {
+            Random rnd = new Random();
 
+            switch (rnd.Next(0, 3))
+            {
+                case 0:
+                    break;
+                case 1:
+                    monstre.Inventaire.Add(Equipements[rnd.Next(0, Equipements.Count)]);
+                    break;
+                case 2:
+                    monstre.Inventaire.Add(Equipements[rnd.Next(0, Equipements.Count)]); 
+                    monstre.Inventaire.Add(Equipements[rnd.Next(0, Equipements.Count)]); 
+                    break;
+            }
 
+            //foreach (Equipement stuffLoot in Inventaire)
+            //{
+            //    Console.WriteLine(stuffLoot.nom);
+            //}
+        }
         public void GenererHorde()
         {
             hordeMonstre = new List<Monstre>();
@@ -81,11 +104,13 @@ namespace MesClasses
             {
                 Monstre monstre;
                 int Lance = rnd.Next(1, 7);
-
+                
+                
                 if (Lance == 1)
                 {
                     monstre = new Orc();
                     monstre.Creation();
+                    LootMonstre(monstre);
                     hordeMonstre.Add(monstre);
                 }
                 else if (Lance == 2 || Lance == 3)
@@ -98,6 +123,7 @@ namespace MesClasses
                 {
                     monstre = new Gobelin();
                     monstre.Creation();
+                    LootMonstre(monstre);
                     hordeMonstre.Add(monstre);
                 }
             }
@@ -112,11 +138,13 @@ namespace MesClasses
                 {
                     case Orc orc:
                         orc.AfficherCaracteristique();
+                        orc.AfficherLootOrc();
                         orc.CriDeGuerre();
                         orc.CoupDeHache();
                         break;
                     case Gobelin gobelin:
                         gobelin.AfficherCaracteristique();
+                        gobelin.AfficherLootGobelin();
                         gobelin.CoupDeMasse();
                         break;
                     case Loup loup:

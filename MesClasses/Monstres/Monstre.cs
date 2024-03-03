@@ -3,6 +3,7 @@ using RPG.Loot;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -16,12 +17,13 @@ namespace MesClasses.Monstres
         // méthode pour créer un monstre en override en lien avec se qui se trouve dans Entite pareil pour les caractéristiques
         public override void Creation()
         {
+            
             Random rnd = new Random();
             Force = rnd.Next(10, 21);
             Endurance = rnd.Next(10, 21);
             Pv = 10;
         }
-
+        
         public override void AfficherCaracteristique()
         {
             Console.WriteLine(this.GetType().Name);

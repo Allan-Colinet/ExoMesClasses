@@ -13,12 +13,19 @@ namespace MesClasses.Monstres.Monstres
         public int Or { get; set; }
         public override void Creation()
         {
+            Inventaire = new List<Equipement>();
             Random rnd = new Random();
             base.Creation();
             Or = rnd.Next(1, 7);
         }
         public override int Force { get => base.Force - 1; set => base.Force = value; }
-        public List<Equipement> Inventaire { get; set; }
+        public void AfficherLootGobelin()
+        {
+            foreach (Equipement item in Inventaire)
+            {
+                Console.WriteLine(item.nom);
+            }
+        }
         public void CoupDeMasse()
         {
             Console.WriteLine("Je tappe à la masse !");

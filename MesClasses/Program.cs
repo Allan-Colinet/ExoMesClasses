@@ -1,4 +1,6 @@
-﻿namespace MesClasses
+﻿using RPG.Loot;
+
+namespace MesClasses
 {
     public class Program
     {
@@ -6,6 +8,7 @@
         {
             //Initialisation de la partie et des méthodes nécessaires au fonctionnement du jeu avec des affichages pour s'assurer que tout ce qui est déjà implémenté fonctionne
             Jeu partie = new Jeu();
+            partie.InitialiserEquipements();
             partie.ChoixClasse();
             //partie.genererstuff();
             partie.GenererHorde();
