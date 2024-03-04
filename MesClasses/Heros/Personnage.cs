@@ -63,10 +63,17 @@ namespace MesClasses.Heros
             // J'utilise une ternaire basée sur le type de personnage. Si la condition est un Guerrier alors tu écris ... ":" Sinon tu écris ...
             Console.WriteLine("Force : " + (GetType().Name == "Guerrier" ? _force + " + " + (Force - _force) + " = " + Force : Force));
             Console.WriteLine("Endurance : " + (GetType().Name == "Guerrier" ? _endurance + " + " + (Endurance - _endurance) + " = " + Endurance : Endurance));
-            Console.WriteLine("Intelligence : " + (GetType().Name == "Mage" ? _intelligence + " + " + (Intelligence - _intelligence) + " = " + Intelligence : Intelligence));
-            Console.WriteLine("Sagesse : " + (GetType().Name == "Mage" ? _sagesse + " + " + (Sagesse - _sagesse) + " = " + Sagesse : Sagesse));
+            if (GetType().Name != "Guerrier")
+            {
+                Console.WriteLine("Intelligence : " + _intelligence + " + " + (Intelligence - _intelligence) + " = " + Intelligence);
+                Console.WriteLine("Sagesse : " +  _sagesse + " + " + (Sagesse - _sagesse) + " = " + Sagesse);
+            }
+            else
+            {
+                Console.WriteLine("Intelligence : " +Intelligence);
+                Console.WriteLine("Sagesse : " + Sagesse);
+            }
             Console.WriteLine($"Points de vie : {Pv}");
-            Console.WriteLine();
             Console.WriteLine($"Or: {Or}");
             Console.WriteLine("---------------------------------------------");
             Console.WriteLine();

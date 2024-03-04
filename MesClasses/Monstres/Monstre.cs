@@ -24,9 +24,16 @@ namespace MesClasses.Monstres
         public override void AfficherCaracteristique()
         {
             Console.WriteLine(this.GetType().Name);
-            Console.WriteLine($"Force : {_force} {Force - _force} = {Force}");
-            Console.WriteLine($"Endu : {Endurance}");
-            Console.WriteLine();
+            if (GetType().Name == "Gobelin")
+            {
+                Console.WriteLine($"Force : {_force} {Force - _force} = {Force}");
+                Console.WriteLine($"Endu : {Endurance}");
+            }
+            else
+            {
+                Console.WriteLine($"Force : {_force} + {Force - _force} = {Force}");
+                Console.WriteLine($"Endu : {Endurance}");
+            }
             Console.WriteLine($"Points de vie : {Pv}");
             if(this is IOr MonstreOr)
             {

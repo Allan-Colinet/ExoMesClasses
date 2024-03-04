@@ -9,7 +9,7 @@ namespace MesClasses.Monstres.Monstres
 {
     public class Gobelin : Monstre, IInventaire, IOr
     {
-        //Ajouter loot rnd(0,3) sur liste Equipements à l'intanciation avec une méthode
+
         public int Or { get; set; }
         public override void Creation()
         {
