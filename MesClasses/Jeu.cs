@@ -28,33 +28,33 @@ namespace MesClasses
             epeeCourte.nbFaces = 6;
             epeeCourte.nbDes = 1;
             EquipementsEnJeu.Add(epeeCourte);
-             
+
             Arme epeeLongue = new Arme();
             epeeLongue.nom = "Epée longue";
             epeeLongue.prix = 25;
             epeeLongue.nbDes = 1;
             epeeLongue.nbFaces = 8;
             EquipementsEnJeu.Add(epeeLongue);
-             
+
             Arme baton = new Arme();
             baton.nom = "Bâton";
             baton.prix = 10;
             baton.nbDes = 1;
             baton.nbFaces = 4;
             EquipementsEnJeu.Add(baton);
-             
+
             Armure armureCuir = new Armure();
             armureCuir.nom = "Armure de Cuir";
             armureCuir.Armures = 2;
             armureCuir.prix = 20;
             EquipementsEnJeu.Add(armureCuir);
-             
+
             Armure armureArgent = new Armure();
             armureArgent.nom = "Armure d'argent";
             armureArgent.Armures = 5;
             armureArgent.prix = 50;
             EquipementsEnJeu.Add(armureArgent);
-             
+
             Consommable potion = new Consommable();
             potion.nom = "Petite Potion de soin";
             potion.prix = 5;
@@ -78,8 +78,8 @@ namespace MesClasses
                     monstre.Inventaire.Add(EquipementsEnJeu[rnd.Next(0, EquipementsEnJeu.Count)]);
                     break;
                 case 2:
-                    monstre.Inventaire.Add(EquipementsEnJeu[rnd.Next(0, EquipementsEnJeu.Count)]); 
-                    monstre.Inventaire.Add(EquipementsEnJeu[rnd.Next(0, EquipementsEnJeu.Count)]); 
+                    monstre.Inventaire.Add(EquipementsEnJeu[rnd.Next(0, EquipementsEnJeu.Count)]);
+                    monstre.Inventaire.Add(EquipementsEnJeu[rnd.Next(0, EquipementsEnJeu.Count)]);
                     break;
             }
         }
@@ -91,7 +91,7 @@ namespace MesClasses
             for (int i = 0; i < 10; i++)
             {
                 Monstre monstre;
-                int Lance = rnd.Next(1, 7); 
+                int Lance = rnd.Next(1, 7);
                 if (Lance == 1)
                 {
                     monstre = new Orc();
@@ -145,19 +145,19 @@ namespace MesClasses
         }
         public void Shop()
         {
-            
-            //AfficherBoutique();
+
+            //AcheterBoutique();
         }
         #endregion
         //Switch pour choisir une classe si le choix correspond, instanciation du personnage choisi avec creation des stats aléatoires et affichage
         #region Classe_Perso
-        public Personnage ChoixClasse()
+        public void ChoixClasse()
         {
             int choix;
-                Console.WriteLine("Quel type de personnage voulez-vous choisir ? ");
-                Console.WriteLine("1 : Guerrier");
-                Console.WriteLine("2 : Mage");
-                Console.WriteLine("3 : Pretre");
+            Console.WriteLine("Quel type de personnage voulez-vous choisir ? ");
+            Console.WriteLine("1 : Guerrier");
+            Console.WriteLine("2 : Mage");
+            Console.WriteLine("3 : Pretre");
             while (!int.TryParse(Console.ReadLine(), out choix) || choix < 1 || choix > 3)
             {
                 Console.Clear();
@@ -167,74 +167,98 @@ namespace MesClasses
                 Console.WriteLine("3 : Pretre");
                 Console.WriteLine("Veuillez entre un chiffre entre 1 et 3");
             }
-                switch (choix)
-                {
-                    case 1:
-                        joueur = new Guerrier();
-                        break;
-                    case 2:
-                        joueur = new Mage();
-                        break;
-                    case 3:
-                        joueur = new Pretre();
-                        break;
-                    default:
-                        joueur = null; break;
-                } 
+            switch (choix)
+            {
+                case 1:
+                    joueur = new Guerrier();
+                    break;
+                case 2:
+                    joueur = new Mage();
+                    break;
+                case 3:
+                    joueur = new Pretre();
+                    break;
+                default:
+                    joueur = null; break;
+            }
             joueur.Creation();
             joueur.AfficherCaracteristique();
-            return joueur;
+
         }
         #endregion
 
-        public void AfficherBoutique()
+        public void AcheterBoutique(Personnage joueur)
         {
-            Console.WriteLine($"Bienvenue dans la boutique du jeu");
-            Console.WriteLine("----------------------------------");
-            Console.WriteLine("Voici la liste des items que vous pouvez acheter");
-
-            for (int i = 0; i < EquipementsEnJeu.Count; i++)
+            int choixUser = 1;
+            while (choixUser != 0)
             {
-                Console.WriteLine($"{i+1}. {EquipementsEnJeu[i].nom} -- prix : {EquipementsEnJeu[i].prix} Or");
-            }
+                do
+                {
+                    Console.Clear();
+                    Console.WriteLine($"Bienvenue dans la boutique du jeu");
+                    Console.WriteLine("----------------------------------");
+                    Console.WriteLine("Voici la liste des items que vous pouvez acheter");
+                    Console.WriteLine($"Votre fortune s'élève à : {joueur.Or} Or");
+                    Console.WriteLine();
+                    Console.WriteLine("0. Quitter");
+                    for (int i = 0; i < EquipementsEnJeu.Count; i++)
+                    {
+                        Console.WriteLine($"{i + 1}. {EquipementsEnJeu[i].nom} -- prix : {EquipementsEnJeu[i].prix} Or");
+                    }
+                    Console.WriteLine("Veuillez entrer le chiffre de l'article à acheter");
+                } while (!int.TryParse(Console.ReadLine(), out choixUser) || choixUser < 0 || choixUser > EquipementsEnJeu.Count);
 
+                if (choixUser != 0)
+                {
+                    if (joueur.Or >= EquipementsEnJeu[choixUser - 1].prix)
+                    {
+                        joueur.InventaireHero.Add(EquipementsEnJeu[choixUser - 1]);
+                        joueur.Or -= EquipementsEnJeu[choixUser - 1].prix;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Vous êtes fauché !");
+                        Console.ReadKey();
+                    }
+                }
+                else
+                {
+                    Console.WriteLine("Bye !");
+                }
+            }
         }
         public void UtiliserBoutique()
         {
-            Console.WriteLine("Voulez-vous visiter la boutique ?");
-            Console.WriteLine("1. Montrez-moi votre étale");
-            Console.WriteLine("2. C'est moi qui vais remplir ton étale mon petit");
-            Console.WriteLine("3. La boutique c'est pour les faibles, envoi moi au combat !");
-            int choix ;
-            while (!int.TryParse(Console.ReadLine(), out choix) || choix < 1 || choix > 3)
+            int choix;
+            do
             {
-            Console.Clear();
-            Console.WriteLine("Voulez-vous visiter la boutique ?");
-            Console.WriteLine("1. Montrez-moi votre étale");
-            Console.WriteLine("2. C'est moi qui vais remplir ton étale mon petit");
-            Console.WriteLine("3. La boutique c'est pour les faibles, envoi moi au combat !");
-            Console.WriteLine("Veuillez entre un chiffre entre 1 et 3");
-            }
+                Console.Clear();
+                Console.WriteLine("Voulez-vous visiter la boutique ?");
+                Console.WriteLine("1. Montrez-moi votre étale");
+                Console.WriteLine("2. C'est moi qui vais remplir ton étale mon petit");
+                Console.WriteLine("3. La boutique c'est pour les faibles, envoi moi au combat !");
+                Console.WriteLine("Veuillez entre un chiffre entre 1 et 3");
+            } while (!int.TryParse(Console.ReadLine(), out choix) || choix < 1 || choix > 3);
 
             switch (choix)
             {
-                case 1: //si le choix est sur 1 afficher la boutique et ajouter le add à l'inventaire selon ce qu'il choisi (utiliser l'index [i] de la liste et possède comme OR(vérifier la possibilité par rapport au prix) 
-                        //
+                case 1:
+                    AcheterBoutique(joueur);
+
+                    //si le choix est sur 1 afficher la boutique et ajouter le add à l'inventaire selon ce qu'il choisi (utiliser l'index [i] de la liste et possède comme OR(vérifier la possibilité par rapport au prix) 
+                    //
 
                     break;
                 case 2: //si choix 2 afficher inventaire joueur et prix/2 des items qu'il peut vendre
-                    // s'il vend implémenter son Or +=
-                    
+                        // s'il vend implémenter son Or +=
+
                     break;
                 case 3: // go dans la méthode de combats
-                    
+
                     break;
                 default:
                     break;
             }
-
-            AfficherBoutique();
-
         }
     }
 }
