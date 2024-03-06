@@ -12,6 +12,8 @@ namespace RPG
         public string? NomPerso { get; set; }
         #region Caracteristiques
         // le protected permet d'être utiliser dans la pile d'héritage pas autre part, contrairement au private
+        public int MaxPV { get; set; }
+
         protected int _pv;
         public int Pv
         {
@@ -32,6 +34,7 @@ namespace RPG
         }
         #endregion
         public abstract void Creation();
+        
         public abstract void AfficherCaracteristique();
         public static int Modificateur(int stats)
         {

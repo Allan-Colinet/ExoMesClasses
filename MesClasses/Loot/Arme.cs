@@ -19,7 +19,7 @@ namespace RPG.Loot
         // La méthode dégats sera implémentée par après avec le système de combats
         public int Degats()
         {
-            return rnd.Next(1,nbFaces + 1);
+            return De.Lancer(nbDes, nbFaces);
         }
 
     }

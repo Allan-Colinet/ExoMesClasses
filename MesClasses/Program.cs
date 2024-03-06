@@ -5,6 +5,7 @@ namespace MesClasses
 {
     public class Program
     {
+        // clic droit sur la méthode (après avoir fait une modification entrainant des erreurs) hierarchie d'appels et aller corriger aux endroits ou la méthode est utilisée
         //Personnage joueur;
         static void Main(string[] args)
         {

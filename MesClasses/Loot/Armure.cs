@@ -10,7 +10,6 @@ namespace RPG.Loot
     {
         // toutes les armures ont une propriété de réduction de degats La méthode sera mise à jour à l'implémentation du système de combats
         public int Armures { get; set; }
-        public int ReducDegats()
-        { return /* Degats - */ Armures ; }
+        public int ReducDegats { get; set; }
     }
 }

@@ -189,6 +189,7 @@ namespace MesClasses
 
         public void AcheterBoutique(Personnage joueur)
         {
+            //Afficher l'inventaire et repasser au menu pour vendre ou ajouter l'option vendre
             int choixUser = 1;
             while (choixUser != 0)
             {
